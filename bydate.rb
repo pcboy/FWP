@@ -17,6 +17,8 @@
 #  David Hagege <david.hagege@gmail.com>
 #
 
+require 'shellwords'
+
 command = ARGV.shift
 files = ARGV.map {|x| [x, File.new(x).ctime.to_i] }.sort_by{|x| x[1]}.reverse.map{|x| x[0]}
-exec("#{command} #{files.map{|x| "'#{x}'"}.join(" ")}")
+exec("#{command} #{files.map{|x| "#{Shellwords.escape x}"}.join(" ")}")
