@@ -9,3 +9,10 @@ No arguments, nothing. It'll generate a tiny index.html file containing a dirlis
 Usage: $> bydate.rb 'command to execute' [FILES]
 
 Bydate.rb execute the full command passed at first argument on all the files after it, sorting these files by ctime first.
+
+
+# Watcher.rb
+
+Usage: $> watcher.rb 'command to execute' FILES
+
+Watcher.rb execute the full command passed at first argument each time ONE of them is modified.
