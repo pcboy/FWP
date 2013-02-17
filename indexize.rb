@@ -17,10 +17,13 @@
 #  David Hagege <david.hagege@gmail.com>
 #
 
+require 'uri'
+
 dir = (ARGV.empty? ? '*' : ARGV.shift + '/*')
 
 open('index.html', 'w') do |f|
   Dir[dir].sort.map do |x|
-    f << "<a href='#{x}'>#{x}</a><br/>\n" if x != 'index.html'
+    f << "<a href='#{URI::escape(x)}'>#{x}</a><br/>\n" if x != 'index.html'
   end
 end
+
