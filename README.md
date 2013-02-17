@@ -16,3 +16,9 @@ Bydate.rb execute the full command passed at first argument on all the files aft
 Usage: $> watcher.rb 'command to execute' FILES
 
 Watcher.rb execute the full command passed at first argument each time ONE of them is modified.
+
+# Gallerify.rb
+
+Usage: $> gallerify.rb <FOLDER>
+
+Gallerify.rb is gonna create a basic index.html file in the current dir with all the FOLDER's files inside <img> tags.
