@@ -22,3 +22,9 @@ Watcher.rb execute the full command passed at first argument each time ONE of th
 Usage: $> gallerify.rb <FOLDER>
 
 Gallerify.rb is gonna create a basic index.html file in the current dir with all the FOLDER's files inside <img> tags.
+
+# Pretty\_json.rb
+
+Usage: $> pretty\_json.rb [FILES]
+
+Pretty\_json will pretty print the files with some JSON content.
