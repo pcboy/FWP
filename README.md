@@ -28,3 +28,9 @@ Gallerify.rb is gonna create a basic index.html file in the current dir with all
 Usage: $> pretty\_json.rb [FILES]
 
 Pretty\_json will pretty print the files with some JSON content.
+
+# Jsonarry.rb
+
+Usage: $> jsonarry.rb [FILES]
+
+Take files containing a list of json hashmaps separated by \n and make it an array of json hashmaps.
