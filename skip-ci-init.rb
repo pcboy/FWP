@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# -*- encoding : utf-8 -*-
+#-*- encoding : utf-8 -*-
 #
 #          DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
 #                  Version 2, December 2004
@@ -16,12 +16,7 @@
 #
 #  David Hagege <david.hagege@gmail.com>
 #
-require 'shellwords'
 
-command = ARGV.shift
-files = ARGV.map {|x| [x, File.new(x).mtime.to_i] }.sort_by{|x| x[1]}.reverse.map{|x| x[0]}
-begin
-  exec("#{command} #{files.map{|x| "#{Shellwords.escape x}"}.join(" ")}")
-rescue
-  files.map{|file| system("#{command} #{Shellwords.escape file}")}
+open('.git/hooks/prepare-commit-msg', 'a') do |f|
+  f.puts %Q{test "`grep '\[skip ci\]' $1`" != "" || echo "[skip ci]" >> "$1"}
 end
