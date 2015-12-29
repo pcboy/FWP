@@ -18,5 +18,5 @@
 #
 
 open('.git/hooks/prepare-commit-msg', 'a') do |f|
-  f.puts %Q{test "`grep '\[skip ci\]' $1`" != "" || echo "[skip ci]" >> "$1"}
+  f.puts %q{test "`grep '\[skip ci\]' $1`" != "" || echo "[skip ci]" >> "$1"}
 end
