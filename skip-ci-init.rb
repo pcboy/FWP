@@ -18,5 +18,10 @@
 #
 
 open('.git/hooks/prepare-commit-msg', 'a') do |f|
-  f.puts %q{test "`grep '\[skip ci\]' $1`" != "" || echo "[skip ci]" >> "$1"}
+  f.puts %q{
+    BRANCH=`git rev-parse --abbrev-ref HEAD`
+    if [ "$BRANCH" != "master" ];then
+      test "`grep '\[skip ci\]' $1`" != "" || echo "[skip ci]" >> "$1"
+    fi
+  }.gsub(/^\s+/, '')
 end
