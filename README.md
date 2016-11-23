@@ -35,3 +35,6 @@ Pretty\_json will pretty print the files with some JSON content.
 Usage: $> jsonarry.rb \<FILES\>
 
 Take files containing a list of json hashmaps separated by \n and make it an array of json hashmaps.
+
+# backup\_android.sh / restore\_android.sh
+Two bash scripts to backup restore an android device (you need root and adb of course)
