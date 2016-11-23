@@ -17,8 +17,6 @@
 #
 set -euo pipefail
 
-pushd `dirname $0`
-
 adb root
 for i in `find app -name '*.apk'`;do
   echo $i
@@ -27,5 +25,3 @@ done
 for i in `ls -1d data/*`;do
   adb push $i/. /data/$i/
 done
-
-popd

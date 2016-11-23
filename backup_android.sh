@@ -18,8 +18,6 @@
 #set -euo pipefail
 IFS=$'\n'
 
-pushd `dirname $0`
-
 adb root
 PACKAGES=`adb shell pm list packages -f | grep -v system`
 rm -rf data/*
@@ -31,5 +29,3 @@ for i in $PACKAGES;do
   adb pull -a /data/app/$PKG app/$PKG
   adb pull -a /data/data/$PKG_DATA data/$PKG_DATA
 done
-
-popd
