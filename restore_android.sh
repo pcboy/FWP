@@ -18,6 +18,8 @@
 set -euo pipefail
 
 adb root
+sleep 2
+
 for i in `find app -name '*.apk'`;do
   echo $i
  adb install -r $i
@@ -25,3 +27,10 @@ done
 for i in `ls -1d data/*`;do
   adb push $i/. /data/$i/
 done
+
+cat <<EOF > fix_perms.sh
+  su
+  IFS=$'\n'; for i in \`ls -d /data/user/0/*/\`; do GROUP=\`stat \$i -c %G\`; chown -R \${GROUP}:\${GROUP} \$i; done
+EOF
+adb shell < fix_perms.sh
+

@@ -19,7 +19,10 @@
 IFS=$'\n'
 
 adb root
-PACKAGES=`adb shell pm list packages -f | grep -v system`
+sleep 2
+
+PACKAGES=`adb shell pm list packages -f -3 | grep -v system`
+mkdir -f {data,app}
 rm -rf data/*
 rm -rf app/*
 for i in $PACKAGES;do
