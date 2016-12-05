@@ -22,7 +22,7 @@ adb root
 sleep 2
 
 PACKAGES=`adb shell pm list packages -f -3 | grep -v system`
-mkdir -f {data,app}
+mkdir {data,app} 2>/dev/null
 rm -rf data/*
 rm -rf app/*
 for i in $PACKAGES;do
