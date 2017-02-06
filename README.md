@@ -38,3 +38,13 @@ Take files containing a list of json hashmaps separated by \n and make it an arr
 
 # backup\_android.sh / restore\_android.sh
 Two bash scripts to backup restore an android device (you need root and adb of course)
+
+# getip.rb
+Usage: $> getip <project\_name\_regexp> <env>
+Search in all elastic beanstalk confs on aws matching your project name regexp and your specified env (production,staging) and returns you the ip address of the instance.
+Example:
+```
+$> getip 'myProject*' production
+10.0.16.202
+```
+Useful in scripts
