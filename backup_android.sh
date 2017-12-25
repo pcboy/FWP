@@ -27,8 +27,9 @@ rm -rf data/*
 rm -rf app/*
 for i in $PACKAGES;do
   PKG=`echo $i | ruby -e 'puts /package:\/data\/app\/(.*)\/base.apk=/.match(STDIN.read).captures'`
+  PKG_DATA=`echo $i | ruby -e 'puts /package:\/data\/app\/.*\/base.apk=(.*)/.match(STDIN.read).captures'`
   echo $PKG
-  PKG_DATA=`echo $PKG | ruby -e 'puts /(.*)-\d/.match(STDIN.read).captures'`
+  echo $PKG_DATA
   adb pull -a /data/app/$PKG app/$PKG
   adb pull -a /data/data/$PKG_DATA data/$PKG_DATA
 done

@@ -15,17 +15,12 @@
 #
 #  David Hagege <david.hagege@gmail.com>
 #
-set -euo pipefail
-
-adb root
-sleep 2
-
 for i in `find app -name '*.apk'`;do
   echo $i
- adb install -r $i
+  adb install -r $i
 done
 for i in `ls -1d data/*`;do
-  adb push $i/. /data/$i/
+ adb push $i/. /data/$i/
 done
 
 cat <<EOF > fix_perms.sh
