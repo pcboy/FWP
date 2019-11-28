@@ -38,3 +38,6 @@ Take files containing a list of json hashmaps separated by \n and make it an arr
 
 # backup\_android.sh / restore\_android.sh
 Two bash scripts to backup restore an android device (you need root and adb of course)
+
+# Replace\_bad\_shellwords.rb
+A script that renames all files in current folder to shell friendly filenames (replace spaces to underscores etc)
